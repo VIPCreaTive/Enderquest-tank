@@ -1,3 +1,33 @@
+ChestCount = 0
+ChestNumber = {}
+Chest = {}
+ChestInfo = {}
+
+
+
+function newchest()
+
+monitor.clear()
+monitor.setCursorPos(1,1)
+print("Geben Sie einen Chestnamen ein!")
+monitor.write("Chestname: ")
+local input = read()
+Chest[ChestCount + 1]ChestInfo[1] = input
+
+monitor.setCursorPos(1,1)
+print("Geben Sie die erste Farbe ein!")
+monitor.write("Farbe Nr.1: ")
+local input = read()
+Chest[ChestCount + 1]ChestInfo[2] = input
+
+print(Chest[1][1])
+print(Chest[1][2])
+
+end
+
+
+
+
 function chest()
 monitor.clear()
 monitor.setTextColor(colors.white)
@@ -16,33 +46,8 @@ monitor.write("|")
 end
 
 --Chest
-monitor.setCursorPos(3,4)
-monitor.setTextColor(colors.white)
-monitor.write("[][][]  Ore-Input")
 
-monitor.setCursorPos(3,5)
-monitor.setTextColor(colors.lightBlue)
-monitor.write("[][][]  ME-Input")
 
-monitor.setCursorPos(3,6)
-monitor.setTextColor(colors.pink)
-monitor.write("[]")
-monitor.setTextColor(colors.white)
-monitor.write("[]")
-monitor.setTextColor(colors.white)
-monitor.write("[]")
-monitor.setTextColor(colors.pink)
-monitor.write("  Ore-Input")
-
-monitor.setCursorPos(3,7)
-monitor.setTextColor(colors.green)
-monitor.write("[]")
-monitor.setTextColor(colors.green)
-monitor.write("[]")
-monitor.setTextColor(colors.green)
-monitor.write("[]")
-monitor.setTextColor(colors.green)
-monitor.write("  Furnace-Input")
 end
 
 function tank()
@@ -55,11 +60,11 @@ end
 while true do
 --Left Monitor
 monitor= peripheral.wrap("left")
-chest()
-tank()
-sleep(3)
+newchest()
+--tank()
+--sleep(3)
 --Right Monitor
 monitor= peripheral.wrap("right")
-chest()
-tank()
+newchest()
+--tank()
 end
